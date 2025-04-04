@@ -28,7 +28,7 @@ userRouter.post('/login',async(req,res)=>{
         if(!email || !password){
             return res.status(400).send({msg:"All fields are required"});
         }
-        const checkUser = await userModel.find({email});
+        const checkUser = await userModel.findOne({email});
         if(!checkUser){
             return res.status(400).send({msg:"Please signup first"});
         }
